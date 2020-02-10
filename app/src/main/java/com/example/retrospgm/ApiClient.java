@@ -23,33 +23,7 @@ public class ApiClient {
 
     private  ApiInterface service;
 
-
-//    private ApiClient() {
-//
-//        OkHttpClient client = new OkHttpClient().newBuilder().addInterceptor(new Interceptor() {
-//            @Override
-//            public Response intercept(@NonNull Chain chain) throws IOException {
-//                Request request = chain.request()
-//                        .newBuilder()
-////                        .addHeader("app_id", APP_ID)
-//                        .addHeader("app_key", Authorization)
-//                        .build();
-//                return chain.proceed(request);
-//            }
-//        }).build();
-//        Retrofit retrofit = new Retrofit.Builder()
-//                .client(client)
-//                .baseUrl("https://api.vauchar.com/")
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .build();
-//        service = retrofit.create(ApiInterface.class);
-//
-//    }
-
     public static Retrofit getClient() {
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
